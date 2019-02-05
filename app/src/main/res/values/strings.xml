@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Descarte Inteligente</string>
+    <string name="tv_email">Nome de usuário ou email</string>
+    <string name="tv_senha">Senha</string>
+    <string name="btn_acessar">Acessar</string>
+    <string name="btn_facebook_login">Acessar com FACEBOOK</string>
+    <string name="btn_google_login">Acessar com GOOGLE</string>
+    <string name="tv_selecionar_material">Selecione o material a ser descartado</string>
+    <string name="novo_usuario">Novo Usuário</string>
+    <string name="email">E-mail</string>
+</resources>

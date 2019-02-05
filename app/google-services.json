@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "340566366480",
+    "firebase_url": "https://descarte-inteligente.firebaseio.com",
+    "project_id": "descarte-inteligente",
+    "storage_bucket": "descarte-inteligente.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340566366480:android:d078ffab1c5ece85",
+        "android_client_info": {
+          "package_name": "descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340566366480-o3i4q3jnvofto2aasnu8vtruvkm5pf1l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2",
+            "certificate_hash": "5aa947f7490124d5c2328125f48314963788f150"
+          }
+        },
+        {
+          "client_id": "340566366480-s2am9gmadd7mm9emlj4bukvt25jtb8je.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUp6Z8i9v_DkmRC621WggT3bFyBzWVxFg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340566366480-s2am9gmadd7mm9emlj4bukvt25jtb8je.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
