@@ -22,6 +22,7 @@ class MaterialAdapter(var materiais: ArrayList<Material>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: MaterialViewHolder, position: Int) {
         holder.layout.tvMaterial.text = this.materiais[position].descricao
         holder.layout.tvDescricao.text = this.materiais[position].detalhes
+        holder.layout.ivMaterial.setImageBitmap(this.materiais[position].image)
     }
 
     class MaterialViewHolder(var layout: LinearLayout) : RecyclerView.ViewHolder(layout) {

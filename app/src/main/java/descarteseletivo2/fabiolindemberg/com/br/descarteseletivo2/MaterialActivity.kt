@@ -1,9 +1,9 @@
 package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
 
+import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_material.*
 
 class MaterialActivity : AppCompatActivity() {
@@ -24,13 +24,21 @@ class MaterialActivity : AppCompatActivity() {
     }
 
     fun carregarMateriais(): ArrayList<Material> {
+
+        val iconePlatico = BitmapFactory.decodeResource(this.resources, R.drawable.plastic)
+        val iconePapel = BitmapFactory.decodeResource(this.resources, R.drawable.paper_bin)
+        val iconeMetal = BitmapFactory.decodeResource(this.resources, R.drawable.metal)
+        val iconeVidro = BitmapFactory.decodeResource(this.resources, R.drawable.glass_bin)
+        val iconePilha = BitmapFactory.decodeResource(this.resources, R.drawable.battery)
+        val iconeEletronico = BitmapFactory.decodeResource(this.resources, R.drawable.ewaste)
+
         var materiais = ArrayList<Material>()
-        materiais.add(Material(1, "Plástico", "Sacos, descartáveis, garrafas pet, plásticos em geral"))
-        materiais.add(Material(2, "Papel", "Papelão, embalagens de papel, livros velhos, etc..."))
-        materiais.add(Material(3, "Metal", "Latas de alumínio, panelas, tampinhas de garrafas, etc..."))
-        materiais.add(Material(4, "Vidro", "Vidros em geral"))
-        materiais.add(Material(5, "Pilha/Bateria", "Pilhas, baterias de celulares e notbooks"))
-        materiais.add(Material(6, "Eletrônicos", "Computadores, monitores, tvs, celulares, aparelhos de som, etc..."))
+        materiais.add(Material(1, "Plástico", "Sacos, descartáveis, garrafas pet, plásticos em geral", iconePlatico))
+        materiais.add(Material(2, "Papel", "Papelão, embalagens de papel, livros velhos, etc...", iconePapel))
+        materiais.add(Material(3, "Metal", "Latas de alumínio, panelas, tampinhas de garrafas, etc...", iconeMetal))
+        materiais.add(Material(4, "Vidro", "Vidros em geral", iconeVidro))
+        materiais.add(Material(5, "Pilha/Bateria", "Pilhas, baterias de celulares e notbooks", iconePilha))
+        materiais.add(Material(6, "Eletrônicos", "Computadores, monitores, tvs, celulares, aparelhos de som, etc...", iconeEletronico))
         return materiais
     }
 }

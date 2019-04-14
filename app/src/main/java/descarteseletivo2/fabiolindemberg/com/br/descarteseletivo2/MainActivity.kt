@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener(View.OnClickListener {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(
                     etEmail.text.toString(),
-                    etSenha.text.toString()).addOnCompleteListener({ task ->
+                    etSenha.text.toString()).addOnCompleteListener { task ->
                 if(task.isSuccessful){
                     startMaterialActivity()
                 }else{
                     Toast.makeText(this, "Erro ao fazer login: ${task.exception.toString()}", Toast.LENGTH_LONG).show()
                 }
-            })
+            }
         })
 
         btnFacebookLoggin.setOnClickListener(View.OnClickListener {
