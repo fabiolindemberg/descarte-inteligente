@@ -33,12 +33,12 @@ class MaterialActivity : AppCompatActivity() {
         val iconeEletronico = BitmapFactory.decodeResource(this.resources, R.drawable.ewaste)
 
         var materiais = ArrayList<Material>()
-        materiais.add(Material(1, "Plástico", "Sacos, descartáveis, garrafas pet, plásticos em geral", iconePlatico))
-        materiais.add(Material(2, "Papel", "Papelão, embalagens de papel, livros velhos, etc...", iconePapel))
-        materiais.add(Material(3, "Metal", "Latas de alumínio, panelas, tampinhas de garrafas, etc...", iconeMetal))
-        materiais.add(Material(4, "Vidro", "Vidros em geral", iconeVidro))
-        materiais.add(Material(5, "Pilha/Bateria", "Pilhas, baterias de celulares e notbooks", iconePilha))
         materiais.add(Material(6, "Eletrônicos", "Computadores, monitores, tvs, celulares, aparelhos de som, etc...", iconeEletronico))
+        materiais.add(Material(3, "Metal", "Latas de alumínio, panelas, tampinhas de garrafas, etc...", iconeMetal))
+        materiais.add(Material(2, "Papel", "Papelão, embalagens de papel, livros velhos, etc...", iconePapel))
+        materiais.add(Material(5, "Pilha/Bateria", "Pilhas, baterias de celulares e notbooks", iconePilha))
+        materiais.add(Material(1, "Plástico", "Sacos, descartáveis, garrafas pet, plásticos em geral", iconePlatico))
+        materiais.add(Material(4, "Vidro", "Vidros em geral", iconeVidro))
         return materiais
     }
 }

@@ -1,11 +1,13 @@
 package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,14 +29,24 @@ class MainActivity : AppCompatActivity() {
         })
 
         btnLogin.setOnClickListener(View.OnClickListener {
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(
-                    etEmail.text.toString(),
-                    etSenha.text.toString()).addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    startMaterialActivity()
-                }else{
-                    Toast.makeText(this, "Erro ao fazer login: ${task.exception.toString()}", Toast.LENGTH_LONG).show()
+
+            this.dismissKeyboard()
+
+            if (etEmail.text.isEmpty() || etSenha.text.isEmpty()) {
+                Toast.makeText(this, R.string.msg_login_info_obrigatorio, Toast.LENGTH_LONG).show()
+            }else {
+                progressBar_cyclic.visibility = View.VISIBLE
+
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                        etEmail.text.toString(),
+                        etSenha.text.toString()).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        startMaterialActivity()
+                    } else {
+                        Toast.makeText(this, "${R.string.msg_erro_login} ${task.exception.toString()}", Toast.LENGTH_LONG).show()
+                    }
                 }
+                progressBar_cyclic.visibility = View.INVISIBLE
             }
         })
 
@@ -69,6 +81,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun Activity.dismissKeyboard() {
+        val inputMethodManager = getSystemService( Context.INPUT_METHOD_SERVICE ) as InputMethodManager
+        if( inputMethodManager.isAcceptingText )
+            inputMethodManager.hideSoftInputFromWindow( this.currentFocus.windowToken, /*flags:*/ 0)
     }
 
     companion object {

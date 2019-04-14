@@ -8,4 +8,6 @@
     <string name="tv_selecionar_material">Selecione o material a ser descartado</string>
     <string name="novo_usuario">Novo Usuário</string>
     <string name="email">E-mail</string>
+    <string name="msg_login_info_obrigatorio">Email e senha devem ser informados</string>
+    <string name="msg_erro_login">Erro ao fazer login</string>
 </resources>
