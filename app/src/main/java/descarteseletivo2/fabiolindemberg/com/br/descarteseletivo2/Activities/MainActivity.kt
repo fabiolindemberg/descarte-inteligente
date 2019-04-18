@@ -1,9 +1,8 @@
-package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
+package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.Activities
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +14,9 @@ import com.facebook.login.LoginResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.R
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.extensions.dismissKeyboard
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.extensions.startMaterialActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,12 +27,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         // Initialize Firebase Auth
-        //FacebookSdk.
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main)
-        auth = FirebaseAuth.getInstance()
 
+        auth = FirebaseAuth.getInstance()
 
         btnNovoUsuario.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, UsuarioActivity::class.java)
@@ -55,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                         etEmail.text.toString(),
                         etSenha.text.toString()).addOnCompleteListener { task ->
                     if (task.isSuccessful) { 
-                        startMaterialActivity()
+                        this.startMaterialActivity()
                     } else {
                         val tag = resources.getString(R.string.msg_erro_login)
                         val msg = resources.getString(R.string.msg_login_invalido)
@@ -95,11 +97,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun startMaterialActivity(){
-        val intent = Intent(this, MaterialActivity::class.java)
-        startActivity(intent)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -111,19 +108,13 @@ class MainActivity : AppCompatActivity() {
                         etEmail.setText(data.getStringExtra("email"))
                         etSenha.setText(data.getStringExtra("senha"))
                     }else{
-                       startMaterialActivity()
+                       this.startMaterialActivity()
                     }
                 }
             }
         }else{
             callbackManager.onActivityResult(requestCode, resultCode, data)
         }
-    }
-
-    fun Activity.dismissKeyboard() {
-        val inputMethodManager = getSystemService( Context.INPUT_METHOD_SERVICE ) as InputMethodManager
-        if( inputMethodManager.isAcceptingText )
-            inputMethodManager.hideSoftInputFromWindow( this.currentFocus.windowToken, /*flags:*/ 0)
     }
 
     override fun onStart() {
@@ -157,6 +148,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        this.startMaterialActivity()
         /*
         hideProgressDialog()
         if (user != null) {
@@ -174,8 +166,6 @@ class MainActivity : AppCompatActivity() {
         }
         */
     }
-
-
 
     companion object {
         val NOVO_USUARIO_RESULT_CODE = 101

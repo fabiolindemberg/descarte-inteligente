@@ -1,9 +1,12 @@
-package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
+package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.Activities
 
 import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.model.Material
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.adapters.MaterialAdapter
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.R
 import kotlinx.android.synthetic.main.activity_material.*
 
 class MaterialActivity : AppCompatActivity() {

@@ -5,36 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dfeed7"
-    tools:context=".MainActivity"
+    tools:context=".Activities.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
-        android:layout_height="63dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/tv_email"
         android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/etSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="88dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/tv_senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/etEmail"
-        app:layout_constraintStart_toStartOf="@+id/etEmail"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        android:autofillHints="" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -48,16 +53,17 @@
 
         <Button
             android:id="@+id/btnNovoUsuario"
+            style="?android:attr/buttonBarStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/holo_blue_dark"
             android:text="@string/novo_usuario"
-            android:textColor="#f7f7f7"
-            style="?android:attr/buttonBarStyle"/>
+            android:textColor="#f7f7f7" />
 
         <Button
             android:id="@+id/btnLogin"
+            style="?android:attr/buttonBarStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -65,8 +71,7 @@
             android:text="@string/btn_acessar"
             android:textColor="#FFFFFF"
             tools:layout_editor_absoluteX="36dp"
-            tools:layout_editor_absoluteY="185dp"
-            style="?android:attr/buttonBarStyle"/>
+            tools:layout_editor_absoluteY="185dp" />
 
     </LinearLayout>
 
@@ -74,54 +79,62 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="73dp"
         android:text="@string/ou"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoogleLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/buttonFacebookLogin"
-        android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_width="379dp"
+        android:layout_height="0dp"
         android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="#3b5998"
         android:drawableStart="@drawable/facebook_logo"
         android:paddingStart="10dp"
         android:paddingEnd="30dp"
         android:text="@string/btn_facebook_login"
         android:textColor="#f7f7f7"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteY="287dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnGoogleLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/btnGoogleLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:background="#D34836"
         android:drawableStart="@drawable/google_logo"
         android:paddingStart="10dp"
         android:paddingEnd="30dp"
         android:text="@string/btn_google_login"
         android:textColor="#f7f7f7"
-        app:layout_constraintEnd_toEndOf="@+id/buttonFacebookLogin"
-        app:layout_constraintStart_toStartOf="@+id/buttonFacebookLogin"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFacebookLogin" />
+        app:layout_constraintBottom_toTopOf="@+id/progressBar_cyclic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ProgressBar
         android:id="@+id/progressBar_cyclic"
         android:layout_width="80dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="269dp"
         android:layout_weight="1"
         android:minWidth="40dp"
         android:minHeight="40dp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGoogleLogin" />
 

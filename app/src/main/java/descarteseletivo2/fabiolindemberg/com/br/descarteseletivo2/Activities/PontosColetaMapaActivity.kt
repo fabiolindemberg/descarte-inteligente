@@ -1,7 +1,8 @@
-package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
+package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.Activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.R
 
 class PontosColetaMapaActivity : AppCompatActivity() {
 

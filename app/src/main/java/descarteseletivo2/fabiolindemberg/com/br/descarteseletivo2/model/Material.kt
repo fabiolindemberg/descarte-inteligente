@@ -1,4 +1,4 @@
-package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
+package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.model
 
 import android.graphics.Bitmap
 

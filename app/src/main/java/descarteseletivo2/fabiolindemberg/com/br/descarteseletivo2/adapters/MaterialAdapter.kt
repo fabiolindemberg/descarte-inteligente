@@ -1,10 +1,11 @@
-package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2
+package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import kotlinx.android.synthetic.main.material_item.*
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.R
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.model.Material
 import kotlinx.android.synthetic.main.material_item.view.*
 
 class MaterialAdapter(var materiais: ArrayList<Material>) : RecyclerView.Adapter<MaterialAdapter.MaterialViewHolder>(){
