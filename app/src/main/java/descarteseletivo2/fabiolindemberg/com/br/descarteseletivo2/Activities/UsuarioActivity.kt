@@ -16,11 +16,11 @@ class UsuarioActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_usuario)
 
-        btnCancelar.setOnClickListener({view ->
+        btnCancelar.setOnClickListener { view ->
             finish()
-        })
+        }
 
-        btnEnviar.setOnClickListener({view ->
+        btnEnviar.setOnClickListener { view ->
 
             if(!etSenha.text.toString().equals(etConfirmacaoSenha.text.toString())){
                 Toast.makeText(this, "A senhas digitadas são diferentes!", Toast.LENGTH_LONG).show()
@@ -31,20 +31,20 @@ class UsuarioActivity : AppCompatActivity() {
             }else {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                         etEmail.text.toString(),
-                        etSenha.text.toString()).addOnCompleteListener({ task ->
-                            if(task.isSuccessful){
-                                val data = Intent()
-                                data.putExtra("email", etEmail.text.toString())
-                                data.putExtra("senha", etSenha.text.toString())
-                                setResult(Activity.RESULT_OK, data)
-                                Toast.makeText(this, "Usuário adicionado com sucesso", Toast.LENGTH_LONG).show()
-                                finish()
-                            }else{
-                                Toast.makeText(this, "Não foi possivel criar o usuário!", Toast.LENGTH_LONG).show()
-                                Log.e("Erro ao criar usuário:", task.exception.toString())
-                            }
-                        })
+                        etSenha.text.toString()).addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        val data = Intent()
+                        data.putExtra("email", etEmail.text.toString())
+                        data.putExtra("senha", etSenha.text.toString())
+                        setResult(Activity.RESULT_OK, data)
+                        Toast.makeText(this, "Usuário adicionado com sucesso", Toast.LENGTH_LONG).show()
+                        finish()
+                    }else{
+                        Toast.makeText(this, "Não foi possivel criar o usuário!", Toast.LENGTH_LONG).show()
+                        Log.e("Erro ao criar usuário:", task.exception.toString())
+                    }
+                }
             }
-        })
+        }
     }
 }

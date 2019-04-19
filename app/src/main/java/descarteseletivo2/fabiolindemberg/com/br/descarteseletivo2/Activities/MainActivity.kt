@@ -1,13 +1,11 @@
 package descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.Activities
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.facebook.*
 import com.facebook.login.LoginResult
@@ -15,8 +13,10 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.R
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.extensions.NOVO_USUARIO_RESULT_CODE
 import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.extensions.dismissKeyboard
 import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.extensions.startMaterialActivity
+import descarteseletivo2.fabiolindemberg.com.br.descarteseletivo2.extensions.startUsuarioActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,13 +35,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         btnNovoUsuario.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, UsuarioActivity::class.java)
-
-            if(!etEmail.text.isEmpty()){
-                intent.putExtra("email", etEmail.text.toString())
-            }
-
-            startActivityForResult(intent, NOVO_USUARIO_RESULT_CODE)
+            this.startUsuarioActivity(etEmail.text.toString())
         })
 
         btnLogin.setOnClickListener(View.OnClickListener {
@@ -100,7 +94,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == NOVO_USUARIO_RESULT_CODE){
+        if(requestCode == this.NOVO_USUARIO_RESULT_CODE){
             if(resultCode == Activity.RESULT_OK){
                 if(data != null){
                     if(FirebaseAuth.getInstance().currentUser == null) {
@@ -167,7 +161,4 @@ class MainActivity : AppCompatActivity() {
         */
     }
 
-    companion object {
-        val NOVO_USUARIO_RESULT_CODE = 101
-    }
 }
